@@ -32,6 +32,11 @@
     return YES;
 }
 
+- (IBAction)deleteTopItem:(id)sender
+{
+	[self.stackPanel removeStackedViewAtIndex:0 animation:UITableViewRowAnimationNone];
+}
+
 - (void)dealloc
 {
 	[stackPanel release];	

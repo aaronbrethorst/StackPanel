@@ -15,5 +15,5 @@
 }
 @property(nonatomic,retain) IBOutlet StackPanel *stackPanel;
 @property (nonatomic, retain) IBOutlet UIWindow *window;
-
+- (IBAction)deleteTopItem:(id)sender;
 @end

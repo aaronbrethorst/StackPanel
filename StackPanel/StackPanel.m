@@ -117,6 +117,39 @@
 	[tableView reloadData];
 }
 
+- (void)removeStackedViewAtIndex:(NSInteger)index
+{
+	[self removeStackedViewAtIndex:index animation:UITableViewRowAnimationNone];
+}
+
+- (void)removeStackedViewAtIndex:(NSInteger)index animation:(UITableViewRowAnimation)rowAnimation
+{
+	if ([cells count] > index)
+	{
+		[cells removeObjectAtIndex:index];
+	}
+	
+	[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:index inSection:0]]
+					 withRowAnimation:rowAnimation];
+}
+
+- (void)removeStackedView:(UIView*)aView
+{
+	[self removeStackedView:aView animation:UITableViewRowAnimationNone];
+}
+
+- (void)removeStackedView:(UIView*)aView animation:(UITableViewRowAnimation)rowAnimation
+{
+	for (int i=0; i<[cells count]; i++)
+	{
+		UITableViewCell *cell = [cells objectAtIndex:i];
+		if (aView == [cell.contentView.subviews objectAtIndex:0])
+		{
+			[self removeStackedViewAtIndex:i animation:rowAnimation];
+		}
+	}
+}
+
 - (void)reloadStack
 {
 	[tableView reloadData];

@@ -35,8 +35,17 @@
 	id<StackPanelDelegate> delegate;
 }
 @property(nonatomic,assign) id<StackPanelDelegate> delegate;
+
+// Add
 - (void)addStackedView:(UIView*)v;
 - (void)addStackedView:(UIView *)v reload:(BOOL)yn;
 - (void)addStackedViews:(NSArray*)a;
+
+// Remove
+- (void)removeStackedViewAtIndex:(NSInteger)index;
+- (void)removeStackedViewAtIndex:(NSInteger)index animation:(UITableViewRowAnimation)rowAnimation;
+- (void)removeStackedView:(UIView*)aView;
+- (void)removeStackedView:(UIView*)aView animation:(UITableViewRowAnimation)rowAnimation;
+
 - (void)reloadStack;
 @end
